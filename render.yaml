@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: observable-incident-agent
+    runtime: docker
+    plan: free
+    region: singapore
+    healthCheckPath: /healthz
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_BASE_URL
+        value: https://generativelanguage.googleapis.com/v1beta/openai
+      - key: OPENAI_MODEL
+        value: gemini-3.8-flash
+      - key: MODEL_TIMEOUT_SECONDS
+        value: "13.5"
+      - key: DATABASE_URL
+        sync: false
